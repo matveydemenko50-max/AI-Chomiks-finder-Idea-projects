@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crossbow Kingdom — Goblin Siege</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =========================
+       MAIN MENU
+       ========================= -->
+  <div id="screenMenu" class="screen active">
+    <div class="panel menuPanel">
+      <div class="title">CROSSBOW KINGDOM</div>
+      <div class="subtitle">Goblin Siege • Medieval Boss Arena</div>
+
+      <div class="hint">
+        WASD — движение • ЛКМ — выстрел • Shift — рывок • Esc — пауза
+      </div>
+
+      <div class="sectionTitle">Сложность</div>
+      <div class="difficultyRow">
+        <button class="btn difficultyBtn" data-difficulty="easy">EASY</button>
+        <button class="btn difficultyBtn selected" data-difficulty="medium">MEDIUM</button>
+        <button class="btn difficultyBtn" data-difficulty="hard">HARD</button>
+      </div>
+
+      <button id="btnStart" class="btn primary">START</button>
+      <button id="btnTestBosses" class="btn">TEST BOSSES</button>
+
+      <div class="small">
+        M — вставить музыку • P — пауза/плей музыки
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       BOSS SELECT
+       ========================= -->
+  <div id="screenBossSelect" class="screen">
+    <div class="panel menuPanel">
+      <div class="title">TEST BOSSES</div>
+      <div class="subtitle">Выбери босса для теста</div>
+
+      <div id="bossSelectList" class="bossSelectList"></div>
+
+      <button id="btnBossSelectBack" class="btn danger">BACK</button>
+    </div>
+  </div>
+
+  <!-- =========================
+       PAUSE
+       ========================= -->
+  <div id="screenPause" class="screen">
+    <div class="panel">
+      <div class="title">PAUSE</div>
+      <div class="subtitle">Игра на паузе</div>
+
+      <button id="btnContinue" class="btn primary">CONTINUE</button>
+      <button id="btnRestartFromPause" class="btn">RESTART</button>
+      <button id="btnBackToMenu" class="btn danger">MENU</button>
+    </div>
+  </div>
+
+  <!-- =========================
+       GAME OVER
+       ========================= -->
+  <div id="screenGameOver" class="screen">
+    <div class="panel">
+      <div class="title">GAME OVER</div>
+      <div id="gameOverStats" class="subtitle">Ты проиграл.</div>
+
+      <button id="btnRestart" class="btn primary">RESTART</button>
+      <button id="btnMenuFromOver" class="btn danger">MENU</button>
+    </div>
+  </div>
+
+  <!-- =========================
+       SHOP / UPGRADES
+       ========================= -->
+  <div id="screenShop" class="screen">
+    <div class="panel shopPanel">
+      <div class="title">UPGRADES</div>
+      <div id="shopSubtitle" class="subtitle">Выбери улучшения перед следующей волной</div>
+
+      <div class="shopTopBar">
+        <div class="hudMiniBox">
+          <span>Coins</span>
+          <strong id="shopCoinsText">0</strong>
+        </div>
+        <div class="hudMiniBox">
+          <span>Wave</span>
+          <strong id="shopWaveText">1</strong>
+        </div>
+      </div>
+
+      <div id="upgradeList" class="upgradeList"></div>
+
+      <button id="btnShopContinue" class="btn primary">START NEXT WAVE</button>
+      <button id="btnShopBackMenu" class="btn danger">MENU</button>
+    </div>
+  </div>
+
+  <!-- =========================
+       HUD
+       ========================= -->
+  <div id="hud">
+    <div class="hudLeft">
+      <div class="hudBox">
+        <div class="hudLabel">HP</div>
+        <div id="hpHearts" class="hearts"></div>
+      </div>
+
+      <div class="hudBox">
+        <div class="hudLabel">Regen</div>
+        <div id="regenText" class="hudValue">10.0s</div>
+      </div>
+
+      <div class="hudBox">
+        <div class="hudLabel">Coins</div>
+        <div id="coinsText" class="hudValue">0</div>
+      </div>
+    </div>
+
+    <div class="hudRight">
+      <div class="hudBox">
+        <div class="hudLabel">Wave</div>
+        <div id="waveText" class="hudValue">1</div>
+      </div>
+
+      <div class="hudBox">
+        <div class="hudLabel">Kills</div>
+        <div id="killsText" class="hudValue">0</div>
+      </div>
+
+      <div class="hudBox">
+        <div class="hudLabel">Score</div>
+        <div id="scoreText" class="hudValue">0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       GAME CANVAS
+       ========================= -->
+  <canvas id="game"></canvas>
+
+  <script src="game.js"></script>
+</body>
+</html>
